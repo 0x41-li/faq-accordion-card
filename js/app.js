@@ -15,16 +15,19 @@
         if (questionBoxParent.classList.contains("accordion-open")) {
           questionBoxParent.classList.remove("accordion-open");
           answers[key].style.height = "0px";
+          questions[key].setAttribute("aria-expanded", "false");
         } else {
           boxs.forEach((box, index) => {
             if (box.classList.contains("accordion-open")) {
               box.classList.remove("accordion-open");
               answers[index].style.height = "0px";
+              questions[index].setAttribute("aria-expanded", "false");
             }
           });
 
           questionBoxParent.classList.add("accordion-open");
           answers[key].style.height = answerHeight[key] + "px";
+          questions[key].setAttribute("aria-expanded", "true");
         }
       });
     });
